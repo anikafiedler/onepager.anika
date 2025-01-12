@@ -1,9 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <title>onepager.media - Interactive Information</title>
+<style>
+        /* Basis-Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: #6c5ce7;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        .bilder-container {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem; /* Abstand zwischen den Bildern */
+        }
+
+        /* Bild von Bildschrimen */
+       .bild {
+       width: 50%;
+       height: auto;
+       object-fit: cover;
+       transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover-Effekt */
+       }
+
+       .bild:hover {
+        transform: scale(1.1); /*Bildschirme werden vergrößert */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Schatten erscheint */
+       }
+
+        /* Interaktive Box */
+        .responsive-box {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .responsive-box:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            padding: 1rem 2rem;
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5a4ed4;
+        }
+
+        /* Media Queries für unterschiedliche Bildschirmgrößen */
+
+        /* Kleiner Bildschirm (Mobile) */
+        @media only screen and (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .responsive-box {
+                padding: 1rem;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+        /* Mittlere Bildschirmgrößen (Tablets) */
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .responsive-box {
+                padding: 1.5rem;
+                margin: 3rem auto;
+                width: 80%;
+            }
+
+            button {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Große Bildschirmgrößen (Desktops) */
+        @media only screen and (min-width: 1025px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            header p {
+                font-size: 1.3rem;
+            }
+
+            .responsive-box {
+                padding: 2rem;
+                width: 60%;
+                margin: 5rem auto;
+            }
+
+            button {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Dunkles Design (Wechsel durch Button) */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #2d3436;
+                color: #dfe6e9;
+            }
+
+            header {
+                background: #0984e3;
+            }
+
+            .responsive-box {
+                background-color: #34495e;
+                border-color: #2d3436;
+            }
+
+            button {
+                background-color: #0984e3;
+            }
+
+            button:hover {
+                background-color: #74b9ff;
+            }
+        }
+    </style>
+</head>
 <body>
-    <h1>media queries</h1>
+    <header>
+        <h1>Willkommen auf der interaktiven Media Queries Seite!</h1>
+        <p>Verändere die Größe deines Bildschirms und entdecke die Überraschungen!</p>
+    </header>
+    <section class="content">
+        <h2>Was sind Media Queries?</h2>
+        <p>Media Queries ist ein CSS-Feature, das es ermöglicht, verschiedene Stile für unterschiedliche Geräte, Bildschirmgrößen oder Bildschirmauflösungen zu definieren. Sie ermöglichen es, eine Webseite flexibel und anpassungsfähig zu gestalten, ohne dass man mehrere Versionen der Webseite erstellen muss.</p>
+     
+        <div class="bilder-container">
+            <img src="bilder/laptop_freigestellt.png" alt="Laptop" class="bild">
+            <img src="bilder/Ipad_freigestellt.png" alt="Ipad" class="bild">
+            <img src="bilder/phone_freigestellt.png" alt="Phone" class="bild">
+        </div> 
+       
+        <button id="changeTheme">Klicke hier, um das Design zu ändern!</button>
+        <div class="responsive-box">
+            <h3>Erlebe, wie sich das Design ändert:</h3>
+            <p>Verändere die Größe des Fensters, um die verschiedenen Layouts zu entdecken!</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Interactive Information - Anika Fiedler </p>
+    </footer>
+
+    <script>
+        // JavaScript für interaktive Designwechsel
+        document.getElementById("changeTheme").addEventListener("click", function () {
+            document.body.classList.toggle("dark-theme");
+        });
+    </script>
 </body>
+</html>
