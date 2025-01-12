@@ -16,10 +16,18 @@
             line-height: 1.6;
             background-color: #f4f4f9;
             color: #333;
+            display: flex;
+            flex-direction: column; /* Inhalt vertikal anordnen */
+            justify-content: center; /* Inhalt zentriert vertikal */
+            align-content: center; /* Inhalt zentriert horizontal */
+            min-height: 100vh;
+            text-align: center;
+            padding: 2rem;
+            margin: 0; 
         }
 
         header {
-            background: #6c5ce7;
+            background: #88b5e8;
             color: white;
             text-align: center;
             padding: 2rem;
@@ -30,8 +38,18 @@
             margin-bottom: 1rem;
         }
 
+        h2, h3, h4, h5 {
+            font-size: 1rem;
+            margin-bottom: 0,5rem;
+        }
+
         header p {
             font-size: 1.2rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
         .bilder-container {
@@ -42,17 +60,47 @@
             gap: 1rem; /* Abstand zwischen den Bildern */
         }
 
-        /* Bild von Bildschrimen */
-       .bild {
-       width: 50%;
+        /* Bild von Laptop */
+       .bild-groß {
+       width: 70%;
        height: auto;
        object-fit: cover;
        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover-Effekt */
        }
 
+        /* Bild von Ipad */
+        .bild-mittel {
+       width: 40%;
+       height: auto;
+       object-fit: cover;
+       transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover-Effekt */
+       }
+
+        /* Bild von phone */
+        .bild-klein {
+       width: 30%;
+       height: auto;
+       object-fit: cover;
+       transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover-Effekt */
+       }
+    
        .bild:hover {
         transform: scale(1.1); /*Bildschirme werden vergrößert */
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Schatten erscheint */
+       }
+
+       .bildschirm-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+       }
+
+       /* Bild von how to verschiedene Gerätegrößen */
+       .bildschirmgrößen {
+       width: 80%;
+       height: auto;
+       object-fit: cover;
        }
 
         /* Interaktive Box */
@@ -68,21 +116,6 @@
 
         .responsive-box:hover {
             transform: scale(1.05);
-        }
-
-        button {
-            padding: 1rem 2rem;
-            background-color: #6c5ce7;
-            color: white;
-            border: none;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #5a4ed4;
         }
 
         /* Media Queries für unterschiedliche Bildschirmgrößen */
@@ -178,18 +211,33 @@
     <section class="content">
         <h2>Was sind Media Queries?</h2>
         <p>Media Queries ist ein CSS-Feature, das es ermöglicht, verschiedene Stile für unterschiedliche Geräte, Bildschirmgrößen oder Bildschirmauflösungen zu definieren. Sie ermöglichen es, eine Webseite flexibel und anpassungsfähig zu gestalten, ohne dass man mehrere Versionen der Webseite erstellen muss.</p>
+
+        <h3>Warum sind Media Queries wichtig?</h3>
+        <p>Mit der zunehmenden Nutzung von mobilen Geräten, Tablets und Desktops mit unterschiedlichen Bildschirmgrößen ist es entscheidend, dass Websites auf allen Geräten gut aussehen und benutzerfreundlich sind. Media Queries machen genau das möglich, indem sie spezifische CSS-Regeln nur dann anwenden, wenn bestimmte Bedingungen erfüllt sind (z. B. Bildschirmbreite, -höhe, Orientierung oder Auflösung).</p>
      
         <div class="bilder-container">
-            <img src="bilder/laptop_freigestellt.png" alt="Laptop" class="bild">
-            <img src="bilder/Ipad_freigestellt.png" alt="Ipad" class="bild">
-            <img src="bilder/phone_freigestellt.png" alt="Phone" class="bild">
+            <img src="bilder/laptop_freigestellt.png" alt="Laptop" class="bild bild-groß">
+            <img src="bilder/Ipad_freigestellt.png" alt="Ipad" class="bild bild-mittel">
+            <img src="bilder/phone_freigestellt.png" alt="Phone" class=" bild bild-klein">
         </div> 
        
-        <button id="changeTheme">Klicke hier, um das Design zu ändern!</button>
         <div class="responsive-box">
             <h3>Erlebe, wie sich das Design ändert:</h3>
             <p>Verändere die Größe des Fensters, um die verschiedenen Layouts zu entdecken!</p>
         </div>
+
+        <h4>Wie funktionieren Media Queries?</h4>
+        <p>Media Queries arbeiten mit Bedingungen, die auf Eigenschaften des Geräts oder des Ansichtsfensters (Viewport) basieren. Diese Bedingungen können Folgendes umfassen:</p>
+            
+             <p>- Breite und Höhe des Viewports (z. B. für mobile Geräte)</p>
+             <p>- Orientierung (Hoch- oder Querformat)</p>
+             <p>- Auflösung (z. B. für Retina-Displays)</p>
+
+        <h5>Beispiel einer Media Query für verschiedene Gerätegrößen:</h5> 
+        <div class="bildschirm-container">
+            <img src="bilder/verschiedene Gerätegrößen.png" alt="screenshot" class="bild bildschirmgrößen">
+        </div>    
+            
     </section>
     <footer>
         <p>&copy; 2025 Interactive Information - Anika Fiedler </p>
@@ -203,3 +251,4 @@
     </script>
 </body>
 </html>
+
