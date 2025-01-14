@@ -89,6 +89,29 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Schatten erscheint */
        }
 
+       /* Button für Farbwechsel */ 
+       button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-bottom: 1.5rem;
+       }
+
+       button:hover {
+        background-color: #2980b9;
+       }
+
+       /* Button im Dunkelmodus */
+       body.dark-theme button:hover {
+        background-color: #0984e3;
+       }
+
+
        .bildschirm-container{
         display: flex;
         justify-content: center;
@@ -212,6 +235,9 @@
         <h2>Was sind Media Queries?</h2>
         <p>Media Queries ist ein CSS-Feature, das es ermöglicht, verschiedene Stile für unterschiedliche Geräte, Bildschirmgrößen oder Bildschirmauflösungen zu definieren. Sie ermöglichen es, eine Webseite flexibel und anpassungsfähig zu gestalten, ohne dass man mehrere Versionen der Webseite erstellen muss.</p>
 
+         <!-- Button für Farbwechsel -->
+         <button id="changeTheme">Wechsel die Farbe</button>
+
         <h3>Warum sind Media Queries wichtig?</h3>
         <p>Mit der zunehmenden Nutzung von mobilen Geräten, Tablets und Desktops mit unterschiedlichen Bildschirmgrößen ist es entscheidend, dass Websites auf allen Geräten gut aussehen und benutzerfreundlich sind. Media Queries machen genau das möglich, indem sie spezifische CSS-Regeln nur dann anwenden, wenn bestimmte Bedingungen erfüllt sind (z. B. Bildschirmbreite, -höhe, Orientierung oder Auflösung).</p>
      
@@ -225,6 +251,7 @@
             <h3>Erlebe, wie sich das Design ändert:</h3>
             <p>Verändere die Größe des Fensters, um die verschiedenen Layouts zu entdecken!</p>
         </div>
+
 
         <h4>Wie funktionieren Media Queries?</h4>
         <p>Media Queries arbeiten mit Bedingungen, die auf Eigenschaften des Geräts oder des Ansichtsfensters (Viewport) basieren. Diese Bedingungen können Folgendes umfassen:</p>
@@ -244,7 +271,7 @@
     </footer>
 
     <script>
-        // JavaScript für interaktive Designwechsel
+        /* JavaScript für interaktive Designwechsel */
         document.getElementById("changeTheme").addEventListener("click", function () {
             document.body.classList.toggle("dark-theme");
         });
