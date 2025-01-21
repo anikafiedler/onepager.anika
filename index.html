@@ -289,7 +289,7 @@
 
         <h5>Beispiel einer Media Query für verschiedene Gerätegrößen:</h5> 
         <div class="bildschirm-container">
-            <img id="wechselbild" src="bilder/verschiedene Gerätegrößen.png" alt="screenshot" class="bild bildschirmgrößen">
+            <img id="wechselbild" src="bilder/verschiedene_gerätegrößen.png" alt="screenshot" class="bild bildschirmgrößen">
         </div>    
             
     </section>
@@ -301,6 +301,9 @@
 
 document.getElementById("darkmode-toggle").addEventListener("click", function () {
     document.body.classList.toggle("dark-theme");
+
+    // Debugging: logge den aktuellen Status der Klasse "dark-theme"
+    console.log('Dark Mode ist jetzt aktiv:', document.body.classList.contains("dark-theme"));
 
     // Text und Symbol im Button wechseln
     if (document.body.classList.contains("dark-theme")) {
