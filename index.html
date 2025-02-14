@@ -26,6 +26,13 @@
             margin: 0; 
         }
 
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 1rem;
+        }
+
         header {
             background: #88b5e8;
             color: white;
@@ -51,6 +58,12 @@
         p {
             line-height: 1.6;
             margin-bottom: 1.5rem;
+        }
+
+        .link {
+            font-size: 12px;
+            text-align: center;
+            margin-top: 10px;
         }
 
         button {
@@ -139,19 +152,17 @@
        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Schatten erscheint */
        }
 
-        .bildschirm-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-       }
+       .bildschirm-container {
+        width: 400px; 
+        max-width: 100%; /* Verhindert, dass das Bild größer als der Container wird */
+        margin: 0 auto;
+        }
 
-       /* Bild von how to verschiedene Gerätegrößen */
-       .bildschirmgrößen {
-       width: 80%;
-       height: auto;
-       object-fit: cover;
-       }
+        .bildschirm-container img {
+        width: 100%; /* Damit das Bild die volle Container-Breite nutzt */
+        height: auto;
+        }
+
 
        /* Interaktive Box */
        .responsive-box {
@@ -168,7 +179,27 @@
         transform: scale(1.05);
         }
 
-        /* Media Queries für unterschiedliche Bildschirmgrößen */
+        .screen-size-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+        }
+
+        .screen-size-buttons button {
+        padding: 10px 15px;
+        font-size: 1rem;
+        background-color: #88b5e8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        }
+
+        .screen-size-buttons button:hover {
+        background-color: #eac162;
+        }
 
         /* Kleiner Bildschirm (Mobile) */
         @media only screen and (max-width: 600px) {
@@ -180,6 +211,11 @@
                 font-size: 1rem;
             }
 
+            .content {
+                width: 100%;
+                padding: 1rem;
+            }
+
             .responsive-box {
                 padding: 1rem;
             }
@@ -187,6 +223,24 @@
             button {
                 width: 100%;
             }
+
+            .bilder-container {
+                grid-template-columns: 1fr; 
+            }
+
+            .bild-klein {
+                width: 20%;
+            }
+
+            .bild-mittel {
+                width: 25%;
+            }
+
+            .bild-groß {
+                width: 40%;
+            }
+
+        
         }
 
         /* Mittlere Bildschirmgrößen (Tablets) */
@@ -255,46 +309,56 @@
 </head>
 <body>
     <header>
-        <h1>Willkommen auf der interaktiven Media Queries Seite!</h1>
-        <p>Verändere die Größe deines Bildschirms und entdecke die Überraschungen!</p>
+        <h1>Welcome to the Interactive Media Queries Page!</h1>
+        <p>Change the size of your screen and discover the surprises!</p>
     </header>
 
      <!-- Button zum aktivieren des Darkmode -->
-     <button id="darkmode-toggle">🌞 Dunkelmodus</button>
+     <button id="darkmode-toggle">🌞 Dark Mode</button>
 
     <section class="content">
-        <h2>Was sind Media Queries?</h2>
-        <p>Media Queries ist ein CSS-Feature, das es ermöglicht, verschiedene Stile für unterschiedliche Geräte, Bildschirmgrößen oder Bildschirmauflösungen zu definieren. Sie ermöglichen es, eine Webseite flexibel und anpassungsfähig zu gestalten, ohne dass man mehrere Versionen der Webseite erstellen muss.</p>
+        <h2>What are media queries?</h2>
+        <p>Media Queries is a CSS feature that makes it possible to define different styles for different devices, screen sizes or screen resolutions. They make it possible to design a website flexibly and adaptably without having to create multiple versions of the website.</p>
 
-        <h3>Warum sind Media Queries wichtig?</h3>
-        <p>Mit der zunehmenden Nutzung von mobilen Geräten, Tablets und Desktops mit unterschiedlichen Bildschirmgrößen ist es entscheidend, dass Websites auf allen Geräten gut aussehen und benutzerfreundlich sind. Media Queries machen genau das möglich, indem sie spezifische CSS-Regeln nur dann anwenden, wenn bestimmte Bedingungen erfüllt sind (z. B. Bildschirmbreite, -höhe, Orientierung oder Auflösung).</p>
+        <h3>Why are media queries important?</h3>
+        <p>With the increasing use of mobile devices, tablets and desktops with different screen sizes, it is crucial that websites look good and are user-friendly on all devices. Media queries make this possible by applying specific CSS rules only when certain conditions are met (e.g. screen width, height, orientation or resolution).</p>
      
         <div class="bilder-container">
             <img src="bilder/laptop_freigestellt.png" alt="Laptop" class="bild bild-groß">
             <img src="bilder/Ipad_freigestellt.png" alt="Ipad" class="bild bild-mittel">
             <img src="bilder/phone_freigestellt.png" alt="Phone" class=" bild bild-klein">
         </div> 
+
+        <p class="link"> 
+            <a href="https://www.seobility.net/de/wiki/Media_Queries" target="_blank"> seobility.net</a>
+        </p>
        
         <div class="responsive-box">
-            <h3>Erlebe, wie sich das Design ändert:</h3>
-            <p>Verändere die Größe des Fensters, um die verschiedenen Layouts zu entdecken!</p>
+            <h3>Experience how the design changes:</h3>
+            <p>Change the size of the window to discover the different layouts!</p>
         </div>
 
-        <h4>Wie funktionieren Media Queries?</h4>
-        <p>Media Queries arbeiten mit Bedingungen, die auf Eigenschaften des Geräts oder des Ansichtsfensters (Viewport) basieren. Diese Bedingungen können Folgendes umfassen:</p>
-            
-             <p>- Breite und Höhe des Viewports (z. B. für mobile Geräte)</p>
-             <p>- Orientierung (Hoch- oder Querformat)</p>
-             <p>- Auflösung (z. B. für Retina-Displays)</p>
+        <div class="screen-size-buttons">
+            <button onclick="changeScreenSize(1280, 720)">💻 Laptop</button>
+            <button onclick="changeScreenSize(768, 1024)">📱 Tablet</button>
+            <button onclick="changeScreenSize(375, 667)">📱 Mobile</button>
+        </div>
 
-        <h5>Beispiel einer Media Query für verschiedene Gerätegrößen:</h5> 
+        <h4>How do media queries work?</h4>
+        <p>Media queries work with conditions that are based on properties of the device or the viewport. These conditions can include the following:</p>
+            
+             <p>- Width and height of the viewport (e.g. for mobile devices)</p>
+             <p>- Orientation (portrait or landscape format)</p>
+             <p>- AResolution (e.g. for Retina displays)</p>
+
+        <h5>Example of a media query for different device sizes:</h5> 
         <div class="bildschirm-container">
-            <img id="wechselbild" src="bilder/verschiedene_gerätegrößen.png" alt="screenshot" class="bild bildschirmgrößen">
+            <img id="wechselbild" src="bilder/light mode.png" alt="light and dark mode" class="bild light/dark">
         </div>    
             
     </section>
     <footer>
-        <p>&copy; 2025 Interactive Information - Anika Fiedler </p>
+        <p>&copy;This page was created by Anika Fiedler during the winter term 2024/25 in the Interactive Information course of the Interface Design program at the University of Applied Sciences Potsdam.</p>
     </footer>
 
     <script>
@@ -307,13 +371,21 @@ document.getElementById("darkmode-toggle").addEventListener("click", function ()
 
     // Text und Symbol im Button wechseln
     if (document.body.classList.contains("dark-theme")) {
-        this.innerHTML = "🌙 Hellen Modus";
-        document.getElementById("wechselbild").src = "bilder/verschiedene Gerätegrößen_dark.png"; // Bild für Darkmode
+        this.innerHTML = "🌙 Light Mode";
+        document.getElementById("wechselbild").src = "bilder/dark mode.png"; // Bild für Darkmode
     } else {
-        this.innerHTML = "🌞 Dunkelmodus";
-        document.getElementById("wechselbild").src = "bilder/verschiedene Gerätegrößen.png"; // Bild für Hellenmodus
+        this.innerHTML = "🌞 Dark Mode";
+        document.getElementById("wechselbild").src = "bilder/light mode.png"; // Bild für Hellenmodus
     }
 });
+
+function changeScreenSize(width, height) {
+    window.open(
+        window.location.href, // Öffnet die aktuelle Seite
+        "_blank", // Neues Fenster
+        `width=${width},height=${height},resizable=yes,scrollbars=yes`
+    );
+}
     </script>
 </body>
 </html>
